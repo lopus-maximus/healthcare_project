@@ -6,7 +6,7 @@
     ></span>
     <input
       type="text"
-      class="form-control"
+      class="form-control me-3 search-bar"
       placeholder="Search"
       aria-describedby="addon-wrapping"
       data-search
@@ -14,11 +14,29 @@
   </div>
   <table class="table1">
     <tr class="table-head">
-      <th class="p-3" style="border-top-left-radius: 1rem">Field Name</th>
-      <th>Description</th>
-      <th>Response Type</th>
-      <th>Field Type</th>
-      <th style="border-top-right-radius: 1rem">Category</th>
+      <th
+        class="p-3 column-sort"
+        id="field_name"
+        style="border-top-left-radius: 1rem; width: 20%"
+      >
+        Field Name
+      </th>
+      <th class="p-3 column-sort" id="description" style="width: 30%">
+        Description
+      </th>
+      <th class="p-3 column-sort" id="exp_response_type" style="width: 20%">
+        Response Type
+      </th>
+      <th class="p-3 column-sort" id="field_type" style="width: 15%">
+        Field Type
+      </th>
+      <th
+        class="p-3 column-sort"
+        id="category"
+        style="border-top-right-radius: 1rem; width: 15%"
+      >
+        Category
+      </th>
     </tr>
     <tbody id="tbody"></tbody>
   </table>
