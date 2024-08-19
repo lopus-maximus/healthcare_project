@@ -5,7 +5,8 @@ let originalData = [];
 let sortCounts = {
   field_name: 0,
   description: 0,
-  exp_response_type: 0,
+  pi: 0,
+  concept_id: 0,
   field_type: 0,
   category: 0,
 };
@@ -50,7 +51,7 @@ function displayTable(data, page) {
   let tab = "";
   paginatedData.forEach((user, index) => {
     tab += `<tr class="bla" id="user-${index}" data-toggle="collapse" data-target="#content-${index}" aria-expanded="true" aria-controls="content-${index}">
-      <td class="p-3" style="width: 20%">
+      <td class="p-3" style="width: 15%">
       <span><button class="arrow"><svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -66,18 +67,18 @@ function displayTable(data, page) {
           </svg></button></span>
       ${user.field_name}
       </td>
+      <td style="width: 15%">${user.concept_id}</td>
       <td style="width: 30%">${user.description}</td>
-      <td style="width: 20%">${user.exp_response_type}</td>
-      <td style="width: 15%">${user.field_type}</td>
+      <td style="width: 15%">${user.pi}</td>
+      <td style="width: 10%">${user.field_type}</td>
       <td style="width: 15%">${user.category}</td>
     </tr>
     <tr class="collapse" id="content-${index}">
-      <td colspan="5">
+      <td colspan="6">
         <div>
           <p><strong>Concept:</strong> ${user.concept}</p>
-          <p><strong>Concept ID:</strong> ${user.concept_id}</p>
+          <p><strong>Response Type:</strong> ${user.exp_response_type}</p>
           <p><strong>Concept Label: </strong> ${user.concept_label}</p>
-          <p><strong>PI:</strong> ${user.pi}</p>
           <p><strong>Study Description:</strong> ${user.study_description}</p>
         </div>
       </td>
@@ -228,6 +229,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     .then(() => loadHTMLComponent("content", "components/content.html"))
     .then(async () => {
       await getUsers();
+
+      // const email = localStorage.getItem("email");
+      // const profile = email.slice(0, 2);
+      // document.getElementById("userIcon").innerHTML = profile;
+      console.log(localStorage);
 
       let btn = document.querySelectorAll("#btn");
       let sidebar = document.querySelector(".sidebar");
